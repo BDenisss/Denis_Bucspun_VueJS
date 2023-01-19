@@ -17,6 +17,7 @@ export default createStore({
         numero: '0623190191',
       },
     ],
+    call : []
   },
   getters: {
   },
@@ -26,7 +27,10 @@ export default createStore({
     },
     removeNum(state) {
       state.numeros = state.numeros.slice(0, -1)
-    }
+    },
+    callHistory(state, h_call) {
+      state.call.push(h_call)
+    },
   },
   actions: {
   },

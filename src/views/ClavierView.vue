@@ -28,7 +28,7 @@
       <button v-on:click="composer('#')">#</button>
     </div>
     <div class="call">
-      <button>Call</button>
+      <button @click="Call">Call</button>
     </div>
   </div>
 </template>
@@ -54,7 +54,21 @@ export default {
     },
     removeNum() {
       this.$store.commit('removeNum')
+    },
+    Call() {
+      let name;
+      if(this.isNumeroExist()) {
+        name = this.contact.find(c => c.numero === this.numeros).name;
+      } else {
+        name = "Inconnu";
+      }
+      this.$store.commit('callHistory', {
+        name: name,
+        numero: this.numeros,
+        date: new Date().toLocaleString()
+      })
     }
+
   }
 }
 </script>
