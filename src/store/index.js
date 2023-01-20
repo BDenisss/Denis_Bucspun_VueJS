@@ -17,7 +17,8 @@ export default createStore({
         numero: '0623190191',
       },
     ],
-    called : []
+    called : [],
+    selectedCallIndex: [],
   },
   getters: {
   },
