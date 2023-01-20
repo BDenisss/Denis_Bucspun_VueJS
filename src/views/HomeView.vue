@@ -1,10 +1,10 @@
 <template>
   <h1>Journal d'appel</h1>
-  <div class="history" v-for="(group, index) in groupedCalls" :key="index">
-    <h3>{{group.name}} - {{group.calls.length}} appel(s) - <button class="call" @click="Call(group.numero)"><img src="../assets/call.png" alt="call_icon"></button></h3>
-    <select v-model="CallSort[index]">
-      <option v-for="(call, i) in group.calls" :value="i" :key="i">{{ call.date }}</option>
-    </select>
+  <div class="history" v-for="call in historique" :key="call.name">
+    <h3>{{call.name}} ({{ call.numero }}) le {{call.date}}</h3>
+    <div class="container_call">
+      <button class="call" @click="Call(call.numero)"><img src="../assets/call.png" alt="call_icon"></button>
+    </div>
   </div>
   <h3 v-if="historique.length === 0">Pas d'appel récent</h3>
 </template>
@@ -18,27 +18,6 @@ export default {
     historique() {
       return this.$store.state.called
     },
-    CallSort() {
-      return this.$store.state.selectedCallIndex
-    },
-    groupedCalls() {
-      const callsByName = {}
-      this.historique.forEach(call => {
-        if (!callsByName[call.name]) {
-          callsByName[call.name] = {
-            name: call.name,
-            numero: call.numero,
-            count: 0,
-            calls: []
-          }
-        }
-        callsByName[call.name].count++
-        callsByName[call.name].calls.push({
-          date: call.date
-        })
-      })
-      return Object.values(callsByName)
-    }
   },
   methods: {
     isNumeroExist(numero) {
@@ -59,7 +38,6 @@ export default {
       })
     }
   },
-
 
 }
 </script>
