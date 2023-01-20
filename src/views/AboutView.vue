@@ -1,8 +1,7 @@
 <template>
   <h1>Contact</h1>
   <div class="contact" v-for="contacts in contact" :key="contacts.name">
-    <h2>{{ contacts.name }}</h2>
-    <p>{{ contacts.numero }}</p>
+    <h3>{{ contacts.name }}: {{ contacts.numero }}</h3>
   </div>
 </template>
 

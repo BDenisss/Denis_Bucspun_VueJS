@@ -2,11 +2,11 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    numeros: "",
+    numeros: '',
     contact : [
       {
-        name: 'John Doe',
-        numero: '0643129832',
+        name: 'Alban de Branquignolle',
+        numero: '911',
       },
       {
         name: 'Denis Bucspun',
@@ -17,7 +17,7 @@ export default createStore({
         numero: '0623190191',
       },
     ],
-    call : []
+    called : []
   },
   getters: {
   },
@@ -29,7 +29,7 @@ export default createStore({
       state.numeros = state.numeros.slice(0, -1)
     },
     callHistory(state, h_call) {
-      state.call.push(h_call)
+      state.called.push(h_call)
     },
   },
   actions: {

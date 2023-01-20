@@ -4,7 +4,6 @@
     <div class="container_input">
       <div class="input">
         <input type="text" v-model="numeros">
-        <button class="delete" @click="removeNum">X</button>
       </div>
       <div v-for="contacts in contact" :key="contacts.name">
         <p v-if="numeros === contacts.numero">{{ contacts.name }}</p>
@@ -23,12 +22,9 @@
       <button v-on:click="composer('7')">7</button>
       <button v-on:click="composer('8')">8</button>
       <button v-on:click="composer('9')">9</button>
-      <button v-on:click="composer('*')">*</button>
+      <button class="call" @click="Call"><img src="../assets/call.png" alt="call_icon"></button>
       <button v-on:click="composer('0')">0</button>
-      <button v-on:click="composer('#')">#</button>
-    </div>
-    <div class="call">
-      <button @click="Call">Call</button>
+      <button class="delete" @click="removeNum"><img src="../assets/larrow.png" alt="delete_icon"></button>
     </div>
   </div>
 </template>
@@ -86,12 +82,12 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 6px;
+  gap: 10px;
 }
 
-button {
-  padding: 16px;
-  font-size: 18px;
+img {
+  height: 20px;
+  object-fit: cover;
 }
 
 form {
@@ -100,22 +96,20 @@ form {
   margin-bottom: 8px;
 }
 
-.call {
-  margin-top: 8px;
-}
-
 .input {
   display: flex;
-  gap: 8px
+  gap: 8px;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 16px;
 }
 
 .delete {
-  padding: 0;
-  padding-left: 3px;
-  padding-right: 3px;
   font-size: 12px;
   font-weight: bold;
-  border-radius: 100%;
   cursor: pointer;
 }
 </style>
