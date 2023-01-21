@@ -32,6 +32,9 @@ export default createStore({
     callHistory(state, h_call) {
       state.called.push(h_call)
     },
+    ajoutContact(state, contact) {
+      state.contact.push((contact))
+    },
   },
   actions: {
   },

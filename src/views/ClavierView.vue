@@ -101,11 +101,7 @@ form {
   gap: 8px;
 }
 
-input {
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 16px;
-}
+
 
 .delete {
   font-size: 12px;
