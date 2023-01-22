@@ -1,32 +1,35 @@
 <template>
   <h1>Clavier</h1>
-  <form>
-    <div class="container_input">
-      <div class="input">
-        <input type="text" v-model="numeros">
+  <div class="phone">
+    <form>
+      <div class="container_input">
+        <div class="input">
+          <input type="text" v-model="numeros">
+        </div>
+        <div v-for="contacts in contact" :key="contacts.name">
+          <p v-if="numeros === contacts.numero">{{ contacts.name }}</p>
+        </div>
+        <p v-if="!isNumeroExist() && numeros">Inconnu</p>
       </div>
-      <div v-for="contacts in contact" :key="contacts.name">
-        <p v-if="numeros === contacts.numero">{{ contacts.name }}</p>
+    </form>
+    <div class="container_clavier">
+      <div class="clavier">
+        <button v-on:click="composer('1')">1</button>
+        <button v-on:click="composer('2')">2</button>
+        <button v-on:click="composer('3')">3</button>
+        <button v-on:click="composer('4')">4</button>
+        <button v-on:click="composer('5')">5</button>
+        <button v-on:click="composer('6')">6</button>
+        <button v-on:click="composer('7')">7</button>
+        <button v-on:click="composer('8')">8</button>
+        <button v-on:click="composer('9')">9</button>
+        <button class="call" @click="Call"><img src="../assets/call.png" alt="call_icon"></button>
+        <button v-on:click="composer('0')">0</button>
+        <button class="delete" @click="removeNum"><img src="../assets/larrow.png" alt="delete_icon"></button>
       </div>
-      <p v-if="!isNumeroExist() && numeros">Inconnu</p>
-    </div>
-  </form>
-  <div class="container_clavier">
-    <div class="clavier">
-      <button v-on:click="composer('1')">1</button>
-      <button v-on:click="composer('2')">2</button>
-      <button v-on:click="composer('3')">3</button>
-      <button v-on:click="composer('4')">4</button>
-      <button v-on:click="composer('5')">5</button>
-      <button v-on:click="composer('6')">6</button>
-      <button v-on:click="composer('7')">7</button>
-      <button v-on:click="composer('8')">8</button>
-      <button v-on:click="composer('9')">9</button>
-      <button class="call" @click="Call"><img src="../assets/call.png" alt="call_icon"></button>
-      <button v-on:click="composer('0')">0</button>
-      <button class="delete" @click="removeNum"><img src="../assets/larrow.png" alt="delete_icon"></button>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -93,7 +96,7 @@ img {
 form {
   display: flex;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .input {

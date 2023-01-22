@@ -48,6 +48,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 12px;
+  margin-top: 10px
 }
 
 img {
@@ -56,6 +57,15 @@ img {
 
 .call {
   width: 20px;
+}
+
+.container_call{
+  display: flex;
+}
+
+button {
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 </style>
