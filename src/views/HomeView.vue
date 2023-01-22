@@ -1,7 +1,10 @@
 <template>
   <h1>Journal d'appel</h1>
   <div class="history" v-for="call in historique" :key="call.name">
-    <h3>{{call.name}} ({{ call.numero }}) le {{call.date}}</h3>
+    <h3>{{ call.name }}</h3>
+    <h3 v-if="call.numero">({{ call.numero }})</h3>
+    <h3 v-if="!call.numero">(Pas de numéro)</h3>
+    <h3>le {{ call.date }}</h3>
     <div class="container_call">
       <button class="call" @click="Call(call.numero)"><img src="../assets/call.png" alt="call_icon"></button>
     </div>
@@ -47,7 +50,7 @@ export default {
 .history {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 4px;
   margin-top: 10px
 }
 
@@ -66,6 +69,12 @@ img {
 button {
   box-sizing: border-box;
   padding: 0 20px;
+  margin-left: 12px;
 }
 
+@media  (max-width: 500px) {
+  h3 {
+    font-size: 16px;
+  }
+}
 </style>

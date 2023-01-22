@@ -29,6 +29,9 @@
           <button v-on:click="composer('0')">0</button>
           <button class="delete" @click="removeNum"><img src="../assets/larrow.png" alt="delete_icon"></button>
         </div>
+        <div class="error_message">
+
+        </div>
       </div>
     </div>
   </div>
