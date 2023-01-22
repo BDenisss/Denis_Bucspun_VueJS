@@ -10,6 +10,7 @@
           <div v-for="contacts in contact" :key="contacts.name">
             <p v-if="numeros === contacts.numero">{{ contacts.name }}</p>
           </div>
+          <p v-if="!numeros">Entrer un numéro</p>
           <p v-if="!isNumeroExist() && numeros">Inconnu</p>
         </div>
       </form>
