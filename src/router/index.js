@@ -6,7 +6,7 @@ import AddView from "@/views/AddView";
 
 const routes = [
   {
-    path: '/journal',
+    path: '/',
     name: 'journal',
     component: HomeView
   },
