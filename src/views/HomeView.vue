@@ -77,4 +77,10 @@ button {
     font-size: 16px;
   }
 }
+
+@media  (max-width: 450px) {
+  h3 {
+    font-size: 13px;
+  }
+}
 </style>
