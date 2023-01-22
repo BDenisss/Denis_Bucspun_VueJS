@@ -35,13 +35,16 @@ export default {
   align-items: center;
   gap: 12px;
   outline: none;
+  flex-wrap: wrap;
+  padding: 0 6px;
 }
 
 .contact {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px ;
+  margin-bottom: 10px;
+
 }
 
 .contact_card {
